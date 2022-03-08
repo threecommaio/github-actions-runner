@@ -47,7 +47,7 @@ COPY scripts/ /usr/local/bin/
 
 # Install additional distro packages and runner virtual envs
 ARG VIRTUAL_ENV_PACKAGES=""
-ARG VIRTUAL_ENV_INSTALLS="basic python aws azure-cli docker-compose nodejs"
+ARG VIRTUAL_ENV_INSTALLS="basic python aws azure-cli docker-compose nodejs containers git github-cli google-cloud-sdk packer terraform yq"
 RUN apt-get -y update && \
     ( [ -z "$VIRTUAL_ENV_PACKAGES" ] || apt-get -y --no-install-recommends install $VIRTUAL_ENV_PACKAGES ) && \
     . /usr/local/bin/install-from-virtual-env-helpers && \
